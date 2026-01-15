@@ -40,11 +40,8 @@ const images = [
 
 const gallery = document.querySelector(`.gallery`);
 
-function create(arr) {
-  for (const element of arr) {
-    gallery.insertAdjacentHTML(`beforeend`, `<li class="gallery-list"><img class="gallery-picture" src="${element.url}" alt="${element.alt}" width="360px"></li>`);
-  }
-  return;
-}
+const code = images
+  .map((element) => `<li class="gallery-list"><img class="gallery-picture" src="${element.url}" alt="${element.alt}" width="360"></li>`)
+  .join("");
 
-create(images);
+gallery.insertAdjacentHTML(`beforeend`, code);
